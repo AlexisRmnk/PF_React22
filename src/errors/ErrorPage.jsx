@@ -6,12 +6,33 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page">
-      <h1>Oops!</h1>
+      <h1>¡Error!</h1>
       <p>Perdon, ocurrio un error inesperado.</p>
-
-      <p>
-        {/* <i>Codigo de error: {error.status} - {error.statusText || error.message}</i> */}
-      </p>
+      <h2>Detalle:</h2>
+      <ul>
+        { 
+          error.error.message && (
+            <li>
+              Mensaje de error: <i> {error.error.message} </i>
+            </li>
+          )
+        }
+        {
+          error.status && (
+            <li>
+              Codigo de estado: <i> {error.status}</i>
+            </li>
+          )
+        }
+        {
+          error.statusText && (
+            <li>
+              Descripcion de codigo de estado: <i> {error.statusText} </i>
+            </li>
+          )
+        }
+        
+      </ul>
     </div>
   )
 }

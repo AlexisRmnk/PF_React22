@@ -4,7 +4,7 @@ import SearchPage from './pages/SearchPage';
 import ErrorPage from './errors/ErrorPage';
 
 const router = createBrowserRouter(
-  [
+  [ 
     {
       path: "/",
       element: <SearchPage/> ,
