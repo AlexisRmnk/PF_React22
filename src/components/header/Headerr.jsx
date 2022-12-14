@@ -1,6 +1,6 @@
 import Logo from "./Logo/Logo";
 
-const Header = () => {
+const Headerr = () => {
     return (
         <header> 
             <Logo/>
@@ -10,4 +10,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Headerr;

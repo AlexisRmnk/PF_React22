@@ -1,24 +1,24 @@
 // import "./SearchPage.css"
 
 import { Container } from "@mui/material";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
+import Headerr from "../components/header/Headerr";
+import Footerr from "../components/footer/Footerr";
 import Search from "../components/Search/Search";
 import Loading from "../components/Loading/Loading"
 import ArticleList from "../components/Articles/Articles";
-import Pagination from "../components/Pagination/Pagination";
+import Paginationn from "../components/Pagination/Paginationn";
 
 const SearchPage = () => {
     return (
         <Container maxWidth='md' >
-            <Header/>
+            <Headerr/>
             <main>
                 <Search/>
                 <Loading/>
                 <ArticleList/>
-                <Pagination/>
+                <Paginationn/>
             </main>
-            <Footer/>
+            <Footerr/>
 
 
         </Container>

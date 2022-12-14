@@ -1,4 +1,4 @@
-const Footer = () => {
+const Footerr = () => {
     return (
         <footer> 
             Footer.jsx
@@ -6,4 +6,4 @@ const Footer = () => {
     )
 }
 
-export default Footer;
+export default Footerr;
