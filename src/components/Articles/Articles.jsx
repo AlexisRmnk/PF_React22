@@ -3,25 +3,28 @@ import Description from "./Description/Description"
 import Image from "./Image/Image"
 import PlatformName from "./PlatformName/PlatformName"
 import TitleLinked from "./TitleLinked/TitleLinked"
+import "./Articles.css"
+
+import Grid from '@mui/material/Unstable_Grid2';
 
 const Articlee = ({art}) => {
     
     return (
-        <article>
-            <p> Article.jsx {art} </p>
-            
+        <Grid className="Art" xs={12} > 
             <PlatformName/>
             <TitleLinked/>
             <Description/>
             <Date/>
             <Image/>
-        </article>
+        </Grid>
+
+        
     )
 }
 
 const ArticleList = () => {
     return (
-        <section>
+        <Grid className="ArtContainer" container spacing={5}>
             {[1, 2, 3, 4].map((Art, index) => {
                 return (
                     <Articlee 
@@ -29,7 +32,8 @@ const ArticleList = () => {
                         key={`art_${index}`} />
                 )
             })}
-        </section>
+        </Grid>
+
     )
 }
 
