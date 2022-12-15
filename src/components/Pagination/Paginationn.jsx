@@ -2,11 +2,11 @@ import { Pagination } from "@mui/material";
 
 const Paginationn = ({
     pageAmount,
-    onChange
+    onChange2
 }) => {
-    const pageChange = (_event, page) => {
+    const pageChange = (_event, pageFromOnChange) => {
         return(
-            onChange(page)
+            onChange2(pageFromOnChange)
         )
     }
 

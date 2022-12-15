@@ -32,26 +32,26 @@ const SearchPage = () => {
         setTotalPages( Math.ceil( (parseInt(totalResults)) / PAGE_SIZE ) );
     }
 
-
+//nota: aca llega   e.target.value
     const onSearch = (searchTerm2) => {
         setSearchParams( {query: searchTerm2});
-    }
+    } //este es el momento en que se agrega a la barra de direccion del navegador!
 
-    const onPageChange = (page) => {  
-        setCurrentPage(page);
+    const onPageChange = (currentPage2) => {  
+        setCurrentPage(currentPage2);
         onSearch( searchParams.get('query'));
-        console.log("estoy en la pagina ", page);
+        console.log("estoy en la pagina ", currentPage2);
     }
 
 
     return (
-        <Container maxWidth='md' >
+        <Container maxWidth='lg' >
             <Headerr/>
             <main>
                 <Search onSearch={onSearch}/>
                 { isLoading && <Loading />}
                 { news && <ArticleList news={news}/>}
-                {news && <Paginationn pageAmount={totalPages} onChange={onPageChange}/> } 
+                { news && <Paginationn pageAmount={totalPages} onChange2={onPageChange}/> } 
                 
             </main>
             <Footerr/>

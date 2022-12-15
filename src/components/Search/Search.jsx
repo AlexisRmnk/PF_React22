@@ -22,7 +22,7 @@ const Search = ({onSearch}) => {
        <IconButton type="button" sx={{ p: '10px' }} aria-label="search"
        onClick={() => {
         onSearch(searchTerm);
-       }} // 2 way binding
+       }}
        >
          <SearchIcon />
        </IconButton>
