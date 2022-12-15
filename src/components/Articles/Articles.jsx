@@ -18,14 +18,14 @@ const Articlee = ({art}) => {
              }} > 
             <Grid container className="Art"  >
                 <Grid item xs={9}>
-                        <TitleLinked/>
-                        <Description/>
-                        <Date/>
-                        <PlatformName url={"https://w3collective.com/get-domain-name-url-javascript/"}/>
+                        <TitleLinked titlee={art.title}/>
+                        <Description description={art.description}/>
+                        <Date datee={art.publishedAt} />
+                        <PlatformName platformName={art.source.name} />
                 </Grid>
                 <Grid item xs={3}>
 
-                        <Image/>
+                        <Image urlImage={art.urlToImage} />
 
                 </Grid>
             </Grid> 
@@ -34,11 +34,11 @@ const Articlee = ({art}) => {
     )
 }
 
-const ArticleList = () => {
+const ArticleList = ({news}) => {
     return (
         
         <Stack className="ArtsContainer" spacing={"10px"} component="section"> 
-            {[1, 2, 3, 4].map((Art, index) => {
+            {news.map((Art, index) => {
                 return (
                     <Articlee 
                         article={Art} 

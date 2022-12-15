@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 
-const Date = () => {
+const Date = ({datee}) => {
     return (
         <Typography variant="body2">
-            Publicado el: (fecha)
+            Publicado el: {datee}
         </Typography>
     )
 }

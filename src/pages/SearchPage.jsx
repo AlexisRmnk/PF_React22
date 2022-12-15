@@ -33,7 +33,7 @@ const SearchPage = () => {
         if (searchParams.get("query")) {
             searchNews()
         }
-    }, [searchParams, currentPage])
+    }, [searchParams, currentPage] )
 
     const onSearch = (searchTerm) => {
         setSearchParams( {query: searchTerm});
@@ -50,10 +50,11 @@ const SearchPage = () => {
         <Container maxWidth='md' >
             <Headerr/>
             <main>
-                <Search />
-                <Loading/>
-                <ArticleList/>
-                <Paginationn/>
+                 <Search onSearch={onSearch}/>
+                { isLoading && <Loading />}
+                { news && <ArticleList/>}
+                {news && <Paginationn pageAmount={totalPages} onChange={onPageChange}/> } 
+                
             </main>
             <Footerr/>
 

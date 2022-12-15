@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-const Image = () => {
+const Image = ({urlImage}) => {
     return (
         <Box sx={{
             // width: "100%",
@@ -19,7 +19,7 @@ const Image = () => {
         }}
             component="img" 
             alt="Imagen_articulo" 
-            src="https://source.unsplash.com/random"
+            src={urlImage}
 
         />
 

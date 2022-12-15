@@ -1,21 +1,35 @@
-import { Button, TextField } from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import { useState } from "react";
 
-const Search = () => {
+const Search = ({onSearch}) => {
+    const [searchTerm, setSearchTerm] = useState("");
     return (
-        <section className="Search">
-            <TextField id="outlined-search" label="Buscar" variant="outlined" type="search"/>
+        <Stack className="Search">
+            <TextField id="outlined-search" 
+            label="Buscar" 
+            variant="outlined" 
+            type="search"
+            value={searchTerm}
+            onChange={
+                (e) => {
+                    setSearchTerm(e.target.value)
+                }
+            }
+            />
 
             
 
             <Button 
                 variant="contained"
                 size="medium"
-                onClick={console.log("click boton BUSCAR capturado")}
+                onClick={
+                    onSearch(searchTerm)
+                }
             > 
                 <SearchIcon fontSize="large" /> 
             </Button>
-        </section>
+        </Stack>
     )
 }
 
