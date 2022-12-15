@@ -1,5 +1,3 @@
-// import "./SearchPage.css"
-
 import { Container } from "@mui/material";
 import Headerr from "../components/header/Headerr";
 import Footerr from "../components/footer/Footerr";
@@ -19,6 +17,11 @@ const SearchPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
     
+    useEffect( () => {
+        if (searchParams.get("query")) {
+            searchNews()
+        }
+    }, [searchParams, currentPage] )
 
 
     const searchNews = async () => {
@@ -29,14 +32,9 @@ const SearchPage = () => {
         setTotalPages( Math.ceil( (parseInt(totalResults)) / PAGE_SIZE ) );
     }
 
-    useEffect( () => {
-        if (searchParams.get("query")) {
-            searchNews()
-        }
-    }, [searchParams, currentPage] )
 
-    const onSearch = (searchTerm) => {
-        setSearchParams( {query: searchTerm});
+    const onSearch = (searchTerm2) => {
+        setSearchParams( {query: searchTerm2});
     }
 
     const onPageChange = (page) => {  
@@ -50,9 +48,9 @@ const SearchPage = () => {
         <Container maxWidth='md' >
             <Headerr/>
             <main>
-                 <Search onSearch={onSearch}/>
+                <Search onSearch={onSearch}/>
                 { isLoading && <Loading />}
-                { news && <ArticleList/>}
+                { news && <ArticleList news={news}/>}
                 {news && <Paginationn pageAmount={totalPages} onChange={onPageChange}/> } 
                 
             </main>

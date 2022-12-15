@@ -8,22 +8,22 @@ import "./Articles.css"
 import Grid from '@mui/material/Grid'
 import { Box, Paper, Stack } from "@mui/material"
 
+
 const Articlee = ({art}) => {
-    
     return (
         <Paper elevation={3}
         component="article"
         sx={{
             padding:"10px",
              }} > 
-            <Grid container className="Art"  >
-                <Grid item xs={9}>
+            <Grid container className="Art" rowSpacing={1} >
+                <Grid item xs={12} sm={8} md={9}>
                         <TitleLinked titlee={art.title}/>
                         <Description description={art.description}/>
                         <Date datee={art.publishedAt} />
                         <PlatformName platformName={art.source.name} />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={4} md={3}>
 
                         <Image urlImage={art.urlToImage} />
 
@@ -39,11 +39,10 @@ const ArticleList = ({news}) => {
         
         <Stack className="ArtsContainer" spacing={"10px"} component="section"> 
             {news.map((Art, index) => {
-                return (
-                    <Articlee 
-                        article={Art} 
+                return <Articlee 
+                        art={Art} 
                         key={`art_${index}`} />
-                )
+                
             })}
         </Stack>
 

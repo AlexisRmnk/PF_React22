@@ -5,14 +5,17 @@ const Image = ({urlImage}) => {
         <Box sx={{
             // width: "100%",
             // maxHeight: "150px",
-            height: "150px",
-            width: "150px",
+            height: "225px",
+            width: "200px",
+            maxHeight: "100%",
             maxWidth: "100%",
+
+
             objectFit: "cover",  
             // maxHeight: "300px",
             // margin:"0 auto ",
             
-           margin: "0 auto",
+            margin: "0 auto",
             display:"block"
 
             
