@@ -1,6 +1,20 @@
-const PlatformName = () => {
+import { Typography } from "@mui/material";
+
+const getPName = (url) => {
+    //obtiene el nombre de la plataforma segun su url
+    let domain = (new URL(url));
+    return domain = domain.hostname.replace('www.','');
+    
+}
+
+const PlatformName = ({
+    url
+}) => {
     return (
-        <p> PlatformName.jsx </p>
+        <Typography variant="body2">
+            Fuente: { getPName( url ) }
+        </Typography>
+
     )
 }
 

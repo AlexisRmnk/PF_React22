@@ -1,6 +1,10 @@
+import { Typography } from "@mui/material";
+
 const Date = () => {
     return (
-        <p> Date.jsx </p>
+        <Typography variant="body2">
+            Publicado el: (fecha)
+        </Typography>
     )
 }
 

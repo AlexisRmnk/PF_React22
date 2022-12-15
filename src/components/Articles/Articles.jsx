@@ -5,26 +5,39 @@ import PlatformName from "./PlatformName/PlatformName"
 import TitleLinked from "./TitleLinked/TitleLinked"
 import "./Articles.css"
 
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid'
+import { Box, Paper, Stack } from "@mui/material"
 
 const Articlee = ({art}) => {
     
     return (
-        <Grid className="Art" xs={12} > 
-            <PlatformName/>
-            <TitleLinked/>
-            <Description/>
-            <Date/>
-            <Image/>
-        </Grid>
+        <Paper elevation={3}
+        component="article"
+        sx={{
+            padding:"10px",
+             }} > 
+            <Grid container className="Art"  >
+                <Grid item xs={9}>
+                        <TitleLinked/>
+                        <Description/>
+                        <Date/>
+                        <PlatformName url={"https://w3collective.com/get-domain-name-url-javascript/"}/>
+                </Grid>
+                <Grid item xs={3}>
 
+                        <Image/>
+
+                </Grid>
+            </Grid> 
+        </Paper>
         
     )
 }
 
 const ArticleList = () => {
     return (
-        <Grid className="ArtContainer" container spacing={5}>
+        
+        <Stack className="ArtsContainer" spacing={"10px"} component="section"> 
             {[1, 2, 3, 4].map((Art, index) => {
                 return (
                     <Articlee 
@@ -32,7 +45,7 @@ const ArticleList = () => {
                         key={`art_${index}`} />
                 )
             })}
-        </Grid>
+        </Stack>
 
     )
 }

@@ -1,6 +1,8 @@
+import { CircularProgress } from "@mui/material";
+
 const Loading = () => {
     return (
-        <p> Loading.jsx </p>
+       <CircularProgress />
     )
 }
 

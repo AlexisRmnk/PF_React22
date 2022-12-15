@@ -1,11 +1,15 @@
+import { Typography } from "@mui/material";
+
 const TitleLinked = () => {
     return (
-        <a 
-        href="https://www.google.com"
-        target="_blank"
-        >
-             TitleLinked.jsx 
-        </a>
+        <Typography variant="h5" component="h2" marginBottom={1}>
+            <a 
+            href="https://www.google.com"
+            target="_blank"
+            >
+                Titulo interesante de noticia TitleLinked.jsx 
+            </a>
+        </Typography>
     )
 }
 
