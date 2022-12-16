@@ -1,1 +1,1 @@
-// WIP
+export const DEFAULT_NEWS_IMG_URL = "/img/Imagen_no_disponible.svg";

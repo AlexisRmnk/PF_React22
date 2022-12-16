@@ -28,27 +28,27 @@ const SearchPage = () => {
     }, [searchParams, currentPage] )
 
     const calculateCurrentPageNewsNumber = (currentPage2, totalPages2, totalResults2) => {
+        if (currentPage2 === totalPages2 ) {
+            const aux = totalResults2 % PAGE_SIZE
+            if (aux !== 0){
+                setCurrentPageNewsNumber(aux)
+            } else {
+                setCurrentPageNewsNumber(10)
+            }
+        } else {
+            setCurrentPageNewsNumber(10)
+        }
+
         // if (currentPage2 === totalPages2 ) {
         //     const aux = totalResults2 % PAGE_SIZE
-        //     if (aux === 0){
-        //         setCurrentPageNewsNumber(10)
-        //     } else {
+        //     if (aux !== 0){
         //         setCurrentPageNewsNumber(aux)
         //     }
         // } else {
         //     setCurrentPageNewsNumber(10)
         // }
 
-        if (currentPage2 === totalPages2 ) {
-            const aux = totalResults2 % PAGE_SIZE
-            if (aux !== 0){
-                setCurrentPageNewsNumber(aux)
-            }
-        } else {
-            setCurrentPageNewsNumber(10)
-        }
-
-        // const aux = totalResults2 % PAGE_SIZE
+        // const aux = (totalResults2 % PAGE_SIZE)
         // ((currentPage2 === totalPages2 ) && (aux !== 0)) ? setCurrentPageNewsNumber(aux) : setCurrentPageNewsNumber(10)
 
 

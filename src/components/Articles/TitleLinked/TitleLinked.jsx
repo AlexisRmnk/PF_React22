@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 
 const TitleLinked = ({
-    titlee
+    titlee, linkToUrl
 }) => {
     return (
         <Typography variant="h5" component="h2" marginBottom={1}>
             <a 
-            href="https://www.google.com"
+            href={linkToUrl}
             target="_blank"
             >
                 {titlee} 

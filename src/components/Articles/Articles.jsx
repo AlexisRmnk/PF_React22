@@ -18,14 +18,15 @@ const Articlee = ({art}) => {
              }} > 
             <Grid container className="Art" rowSpacing={1} >
                 <Grid item xs={12} sm={8} md={9}>
-                        <TitleLinked titlee={art.title}/>
+                        <TitleLinked titlee={art.title} linkToUrl={art.url}/>
                         <Description description={art.description}/>
                         <Date datee={art.publishedAt} />
                         <PlatformName platformName={art.source.name} />
                 </Grid>
                 <Grid item xs={12} sm={4} md={3}>
 
-                        <Image urlImage={art.urlToImage} />
+                        <Image imageUrl={art.urlToImage} 
+                        titlee={art.title}/>
 
                 </Grid>
             </Grid> 
