@@ -1,5 +1,5 @@
 const LANG = "es"
-const API_KEY = "74ae2717fdb14ac0808595cc145a50f3";
+const API_KEY = "a34e30cc351e4a9bac68203680420f53";
 const NEWS_API = `https://newsapi.org/v2/`;
 export const PAGE_SIZE = 10;
 

@@ -8,6 +8,7 @@ import Paginationn from "../components/Pagination/Paginationn";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getArticles, PAGE_SIZE } from "../services/getArticles";
+import InfoText from "../components/InfoText/InfoText";
 
 const SearchPage = () => {
 
@@ -16,20 +17,54 @@ const SearchPage = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [searchParams, setSearchParams] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
-    
+    const [totalResultss, setTotalResultss] = useState(0);
+    const [currentPageNewsNumber, setCurrentPageNewsNumber] = useState(0);
+
+
     useEffect( () => {
         if (searchParams.get("query")) {
-            searchNews()
+            searchNews();
         }
     }, [searchParams, currentPage] )
 
+    const calculateCurrentPageNewsNumber = (currentPage2, totalPages2, totalResults2) => {
+        // if (currentPage2 === totalPages2 ) {
+        //     const aux = totalResults2 % PAGE_SIZE
+        //     if (aux === 0){
+        //         setCurrentPageNewsNumber(10)
+        //     } else {
+        //         setCurrentPageNewsNumber(aux)
+        //     }
+        // } else {
+        //     setCurrentPageNewsNumber(10)
+        // }
+
+        if (currentPage2 === totalPages2 ) {
+            const aux = totalResults2 % PAGE_SIZE
+            if (aux !== 0){
+                setCurrentPageNewsNumber(aux)
+            }
+        } else {
+            setCurrentPageNewsNumber(10)
+        }
+
+        // const aux = totalResults2 % PAGE_SIZE
+        // ((currentPage2 === totalPages2 ) && (aux !== 0)) ? setCurrentPageNewsNumber(aux) : setCurrentPageNewsNumber(10)
+
+
+    }
 
     const searchNews = async () => {
         setIsLoading(true);
-        const {articles: news, totalResults} = await getArticles(searchParams.get("query"), currentPage);
+        const {articles: news, totalResults} = await getArticles( searchParams.get("query"), currentPage);
         setNews(news);
+        
+        setTotalResultss(parseInt(totalResults));        
+        
+        const totalPages2 = Math.ceil( (parseInt(totalResults)) / PAGE_SIZE )
+        setTotalPages( totalPages2 );
+        calculateCurrentPageNewsNumber(currentPage , totalPages2 , totalResults );
         setIsLoading(false);
-        setTotalPages( Math.ceil( (parseInt(totalResults)) / PAGE_SIZE ) );
     }
 
 //nota: aca llega   e.target.value
@@ -39,7 +74,7 @@ const SearchPage = () => {
 
     const onPageChange = (currentPage2) => {  
         setCurrentPage(currentPage2);
-        onSearch( searchParams.get('query'));
+        onSearch( searchParams.get('query') );
         console.log("estoy en la pagina ", currentPage2);
     }
 
@@ -50,6 +85,9 @@ const SearchPage = () => {
             <main>
                 <Search onSearch={onSearch}/>
                 { isLoading && <Loading />}
+                { news && <InfoText currentPageNewsNumber={currentPageNewsNumber}
+                                    searchTerm={searchParams.get('query')} 
+                                    totalResNum={totalResultss} /> }
                 { news && <ArticleList news={news}/>}
                 { news && <Paginationn pageAmount={totalPages} onChange2={onPageChange}/> } 
                 
