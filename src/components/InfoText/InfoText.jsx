@@ -1,8 +1,9 @@
 import { Typography } from "@mui/material";
+import pluralize from "pluralize";
 
 
 const checkResultNum = (currentPageNewsNumber, totalResNum, searchTerm) => {
-   return ((totalResNum > 0) ? (`Usted esta viendo ${currentPageNewsNumber} noticias de un total de ${totalResNum}  resultados.`) : (`No se han encontrado noticias para "${searchTerm}".`))
+    return ((totalResNum > 0) ? (`Usted esta viendo ${currentPageNewsNumber} ${pluralize("noticia", currentPageNewsNumber)} de un total de ${totalResNum}  resultados.`) : (`No se han encontrado noticias para "${searchTerm}".`))
  
 }
 

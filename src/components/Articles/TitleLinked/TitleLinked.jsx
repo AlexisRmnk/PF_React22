@@ -4,7 +4,7 @@ const TitleLinked = ({
     titlee, linkToUrl
 }) => {
     return (
-        <Typography variant="h5" component="h2" marginBottom={1}>
+        <Typography variant="h5" component="h3" marginBottom={1}>
             <a 
             href={linkToUrl}
             target="_blank"

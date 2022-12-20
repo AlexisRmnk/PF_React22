@@ -3,20 +3,23 @@ import Description from "./Description/Description"
 import Image from "./Image/Image"
 import PlatformName from "./PlatformName/PlatformName"
 import TitleLinked from "./TitleLinked/TitleLinked"
-import "./Articles.css"
 
 import Grid from '@mui/material/Grid'
-import { Box, Paper, Stack } from "@mui/material"
+import {Paper, Stack } from "@mui/material"
 
 
 const Articlee = ({art}) => {
     return (
         <Paper elevation={3}
         component="article"
+        className="Articlee"
         sx={{
             padding:"10px",
+            backgroundColor: "rgba(255, 255, 255, 0.65)",
+            ":hover":{backgroundColor: "rgba(255, 255, 255, 1)", 
+                        transition: "1s" },
              }} > 
-            <Grid container className="Art" rowSpacing={1} >
+            <Grid container rowSpacing={1} columnSpacing={1} >
                 <Grid item xs={12} sm={8} md={9}>
                         <TitleLinked titlee={art.title} linkToUrl={art.url}/>
                         <Description description={art.description}/>
@@ -38,26 +41,15 @@ const Articlee = ({art}) => {
 const ArticleList = ({news}) => {
     return (
         
-        <Stack className="ArtsContainer" spacing={"10px"} component="section"> 
+        <Stack className="ArticlesContainer" spacing={"10px"} component="section"> 
             {news.map((Art, index) => {
                 return <Articlee 
                         art={Art} 
                         key={`art_${index}`} />
-                
             })}
         </Stack>
 
     )
 }
-
-
-// const ArticleList = () => {
-//     let iterable = [1,2,3,4];
-//     return ( <section> { iterable.map(() =>  <Articulo/>  )  } </section> )
-    
-// }
-
-
-
 
 export default ArticleList;

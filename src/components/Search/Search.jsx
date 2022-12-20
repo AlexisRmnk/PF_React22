@@ -6,12 +6,15 @@ const Search = ({onSearch}) => {
     return (
       <Container
       component="form"
-      sx={{ padding: '2px 4px', display: 'flex', alignItems: 'center', width: "100%", marginTop: "50px", height: "50px" , marginBottom: "40px" ,}}>
+      sx={{ padding: '2px 4px', display: 'flex', alignItems: 'center',
+       width: "100%", marginTop: "50px", height: "50px", 
+       marginBottom: "40px",}}>
 
-        <Grid container columnSpacing={1} sx={{display: 'flex', alignItems: 'center',}}>
+        <Grid container columnSpacing={1} sx={{display: 'flex', alignItems: 'center', }}>
 
           <Grid item xs={6} sm={7} md={9}>
             <TextField label="Buscar" variant="outlined" fullWidth 
+            sx={{backgroundColor:"rgba(255, 255, 255, 0.25)"}}
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value)
@@ -20,7 +23,8 @@ const Search = ({onSearch}) => {
           </Grid>
           <Grid item xs={6} sm={5} md={3}>
             <Button disabled={searchTerm.length < 3}  
-            sx={{ padding: '10px', margin: "0", width: "100%" }}
+            sx={{ padding: '10px', margin: "0", width: "100%",
+            backgroundColor:"rgba(255, 255, 255, 0.4)", }}
             onClick={() => {
               onSearch(searchTerm);
             }} >

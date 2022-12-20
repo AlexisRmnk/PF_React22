@@ -1,8 +1,19 @@
+import { Box } from "@mui/material";
+import { LOGO_IMG_URL } from "../../../lib/constants";
 import "./Logo.css";
 
 const Logo = () => {
     return (
-        <img className="Logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Aperture_Science.svg" alt="Logo" />
+        <a href="/">
+            <Box 
+            component="img"
+            className="Logo" 
+            src={LOGO_IMG_URL} 
+            alt="Logo"
+            sx={{width: "100%", height: "100%",
+                minWidth: "100px"}}
+        />
+        </a>
     )
 }
 

@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Headerr from "../components/header/Headerr";
 import Footerr from "../components/footer/Footerr";
 import Search from "../components/Search/Search";
@@ -28,30 +28,11 @@ const SearchPage = () => {
     }, [searchParams, currentPage] )
 
     const calculateCurrentPageNewsNumber = (currentPage2, totalPages2, totalResults2) => {
-        if (currentPage2 === totalPages2 ) {
-            const aux = totalResults2 % PAGE_SIZE
-            if (aux !== 0){
-                setCurrentPageNewsNumber(aux)
-            } else {
-                setCurrentPageNewsNumber(10)
-            }
-        } else {
-            setCurrentPageNewsNumber(10)
-        }
-
-        // if (currentPage2 === totalPages2 ) {
-        //     const aux = totalResults2 % PAGE_SIZE
-        //     if (aux !== 0){
-        //         setCurrentPageNewsNumber(aux)
-        //     }
-        // } else {
-        //     setCurrentPageNewsNumber(10)
-        // }
-
-        // const aux = (totalResults2 % PAGE_SIZE)
-        // ((currentPage2 === totalPages2 ) && (aux !== 0)) ? setCurrentPageNewsNumber(aux) : setCurrentPageNewsNumber(10)
-
-
+        const aux = totalResults2 % PAGE_SIZE
+        if (currentPage2 === totalPages2 && aux !== 0) {
+            return aux;
+        } 
+        return 10;
     }
 
     const searchNews = async () => {
@@ -63,7 +44,7 @@ const SearchPage = () => {
         
         const totalPages2 = Math.ceil( (parseInt(totalResults)) / PAGE_SIZE )
         setTotalPages( totalPages2 );
-        calculateCurrentPageNewsNumber(currentPage , totalPages2 , totalResults );
+        setCurrentPageNewsNumber (calculateCurrentPageNewsNumber(currentPage , totalPages2 , totalResults));
         setIsLoading(false);
     }
 
@@ -75,14 +56,13 @@ const SearchPage = () => {
     const onPageChange = (currentPage2) => {  
         setCurrentPage(currentPage2);
         onSearch( searchParams.get('query') );
-        console.log("estoy en la pagina ", currentPage2);
     }
 
 
     return (
-        <Container maxWidth='lg' >
+        <Container sx={{minWidth:"300px", width: "90vw"}}> 
             <Headerr/>
-            <main>
+            <Box component="main">
                 <Search onSearch={onSearch}/>
                 { isLoading && <Loading />}
                 { news && <InfoText currentPageNewsNumber={currentPageNewsNumber}
@@ -91,7 +71,7 @@ const SearchPage = () => {
                 { news && <ArticleList news={news}/>}
                 { news && <Paginationn pageAmount={totalPages} onChange2={onPageChange}/> } 
                 
-            </main>
+            </Box>
             <Footerr/>
 
 

@@ -1,4 +1,4 @@
-import { Pagination } from "@mui/material";
+import { Box, Pagination } from "@mui/material";
 
 const Paginationn = ({
     pageAmount,
@@ -11,11 +11,21 @@ const Paginationn = ({
     }
 
     return (
-        <Pagination count={pageAmount}
+        <Box display={"flex"} 
+            sx={{
+                alignItems: "center",
+                justifyContent:"center",
+                marginTop:"10px",
+            }} >
+            <Pagination count={pageAmount}
+            onChange={pageChange}
             shape="rounded"
             color="primary" showFirstButton showLastButton 
-            onChange={pageChange}
+            sx={{backgroundColor: "rgba(255, 255, 255, 0.25)"}}
+            
+            
             />
+        </Box>
     )
 }
 

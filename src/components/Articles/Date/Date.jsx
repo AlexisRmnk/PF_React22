@@ -9,7 +9,6 @@ const Date = ({datee}) => {
     return (
         <Typography variant="body2">
             Publicado el: {formatDate(datee)}
-            {/* Publicado el: 28-06-2022 a las 03:00 hs */}
         </Typography>
     )
 }
