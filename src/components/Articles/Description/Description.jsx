@@ -7,5 +7,4 @@ const Description = ({description}) => {
         </Typography>
     )
 }
-
 export default Description;

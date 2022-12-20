@@ -28,7 +28,7 @@ const Headerr = () => {
                 component="h2" marginTop="-10px"
                 paddingLeft="10px"
                 paddingRight="10px"
-                > Noticias En Español </Typography> 
+                >Noticias En Español </Typography> 
             </Grid> 
         </Grid>
     )

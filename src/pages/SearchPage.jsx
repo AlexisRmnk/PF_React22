@@ -11,7 +11,6 @@ import { getArticles, PAGE_SIZE } from "../services/getArticles";
 import InfoText from "../components/InfoText/InfoText";
 
 const SearchPage = () => {
-
     const [news, setNews] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [totalPages, setTotalPages] = useState(1);
@@ -19,7 +18,6 @@ const SearchPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalResultss, setTotalResultss] = useState(0);
     const [currentPageNewsNumber, setCurrentPageNewsNumber] = useState(0);
-
 
     useEffect( () => {
         if (searchParams.get("query")) {
@@ -48,16 +46,14 @@ const SearchPage = () => {
         setIsLoading(false);
     }
 
-//nota: aca llega   e.target.value
     const onSearch = (searchTerm2) => {
         setSearchParams( {query: searchTerm2});
-    } //este es el momento en que se agrega a la barra de direccion del navegador!
+    } 
 
     const onPageChange = (currentPage2) => {  
         setCurrentPage(currentPage2);
         onSearch( searchParams.get('query') );
     }
-
 
     return (
         <Container sx={{minWidth:"300px", width: "90vw"}}> 
@@ -70,16 +66,9 @@ const SearchPage = () => {
                                     totalResNum={totalResultss} /> }
                 { news && <ArticleList news={news}/>}
                 { news && <Paginationn pageAmount={totalPages} onChange2={onPageChange}/> } 
-                
             </Box>
             <Footerr/>
-
-
         </Container>
-
-        
-
     )
 }
-
 export default SearchPage;

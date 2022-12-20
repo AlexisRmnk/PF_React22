@@ -15,6 +15,4 @@ describe('<Image />', () => {
         const component = renderImage();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

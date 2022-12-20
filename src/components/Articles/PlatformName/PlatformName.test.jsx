@@ -12,6 +12,4 @@ describe('<PlatformName />', () => {
         const component = renderPlatformName();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

@@ -14,6 +14,4 @@ describe('<Description />', () => {
         const component = renderDescription();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

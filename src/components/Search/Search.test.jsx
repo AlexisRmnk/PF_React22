@@ -12,6 +12,4 @@ describe('<Search />', () => {
         const component = renderSearch();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

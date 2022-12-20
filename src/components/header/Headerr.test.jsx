@@ -12,6 +12,4 @@ describe('<Headerr />', () => {
         const component = renderHeader();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

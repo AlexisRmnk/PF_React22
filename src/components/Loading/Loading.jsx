@@ -8,7 +8,6 @@ const Loading = () => {
             display:"block", margin:"0 auto",
         }}/>
     )
-       
 }
 
 export default Loading;

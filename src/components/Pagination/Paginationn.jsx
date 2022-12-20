@@ -22,11 +22,8 @@ const Paginationn = ({
             shape="rounded"
             color="primary" showFirstButton showLastButton 
             sx={{backgroundColor: "rgba(255, 255, 255, 0.25)"}}
-            
-            
             />
         </Box>
     )
 }
-
 export default Paginationn;

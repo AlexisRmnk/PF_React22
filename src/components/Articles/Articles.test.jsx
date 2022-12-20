@@ -13,6 +13,4 @@ describe('<ArticleList />', () => {
         const component = renderArticleList();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

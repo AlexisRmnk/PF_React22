@@ -12,5 +12,4 @@ const Date = ({datee}) => {
         </Typography>
     )
 }
-
 export default Date;

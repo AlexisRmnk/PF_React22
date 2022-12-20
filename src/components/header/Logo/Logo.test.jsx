@@ -12,6 +12,4 @@ describe('<Logo />', () => {
         const component = renderLogo();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

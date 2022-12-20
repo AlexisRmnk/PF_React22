@@ -13,7 +13,6 @@ const renderInfoText2 = () => {
     return component;
 };
 
-
 describe('<InfoText />', () => {
     test('It should render InfoText component', async () => {
         const component = renderInfoText();
@@ -23,6 +22,4 @@ describe('<InfoText />', () => {
         const component = renderInfoText2();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

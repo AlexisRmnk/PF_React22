@@ -3,10 +3,8 @@ import Description from "./Description/Description"
 import Image from "./Image/Image"
 import PlatformName from "./PlatformName/PlatformName"
 import TitleLinked from "./TitleLinked/TitleLinked"
-
 import Grid from '@mui/material/Grid'
 import {Paper, Stack } from "@mui/material"
-
 
 const Articlee = ({art}) => {
     return (
@@ -21,26 +19,22 @@ const Articlee = ({art}) => {
              }} > 
             <Grid container rowSpacing={1} columnSpacing={1} >
                 <Grid item xs={12} sm={8} md={9}>
-                        <TitleLinked titlee={art.title} linkToUrl={art.url}/>
-                        <Description description={art.description}/>
-                        <Date datee={art.publishedAt} />
-                        <PlatformName platformName={art.source.name} />
+                    <TitleLinked titlee={art.title} linkToUrl={art.url}/>
+                    <Description description={art.description}/>
+                    <Date datee={art.publishedAt} />
+                    <PlatformName platformName={art.source.name} />
                 </Grid>
                 <Grid item xs={12} sm={4} md={3}>
-
-                        <Image imageUrl={art.urlToImage} 
-                        titlee={art.title}/>
-
+                    <Image imageUrl={art.urlToImage} 
+                    titlee={art.title}/>
                 </Grid>
             </Grid> 
         </Paper>
-        
     )
 }
 
 const ArticleList = ({news}) => {
     return (
-        
         <Stack className="ArticlesContainer" spacing={"10px"} component="section"> 
             {news.map((Art, index) => {
                 return <Articlee 
@@ -48,8 +42,6 @@ const ArticleList = ({news}) => {
                         key={`art_${index}`} />
             })}
         </Stack>
-
     )
 }
-
 export default ArticleList;

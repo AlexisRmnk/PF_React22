@@ -14,6 +14,4 @@ describe('<Date />', () => {
         const component = renderDate();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

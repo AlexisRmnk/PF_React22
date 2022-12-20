@@ -13,6 +13,4 @@ describe('<TitleLinked />', () => {
         const component = renderTitleLinked();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

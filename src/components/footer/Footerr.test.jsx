@@ -12,6 +12,4 @@ describe('<Footerr />', () => {
         const component = renderFooter();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

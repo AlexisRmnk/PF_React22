@@ -13,6 +13,4 @@ describe('<Paginationn />', () => {
         const component = renderPagination();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });

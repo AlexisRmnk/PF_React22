@@ -20,5 +20,4 @@ const Image = ({imageUrl, titlee}) => {
         />
     )
 }
-
 export default Image;

@@ -12,6 +12,4 @@ describe('<Loading />', () => {
         const component = renderLoading();
         expect(component.container).toBeInTheDocument();
     });
-
-
 });
